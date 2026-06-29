@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Happy Birthday ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Floating Hearts -->
+<div class="hearts"></div>
+
+<!-- Sparkles -->
+<div class="sparkles"></div>
+
+<!-- Loading Screen -->
+
+<div id="loader">
+
+<div class="loader-content">
+
+<div class="gift">🎁</div>
+
+<h2>Preparing Your Surprise...</h2>
+
+<div class="loading-bar">
+
+<span></span>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Music Button -->
+
+<button id="musicBtn">
+
+🎵
+
+</button>
+
+<audio id="bgMusic" loop>
+
+<source src="assets/music.mp3" type="audio/mp3">
+
+</audio>
+
+<!-- Lock Screen -->
+
+<section id="lockScreen" class="page active">
+
+<div class="card">
+
+<div class="lock-icon">
+
+🔒
+
+</div>
+
+<h1>Secret Surprise</h1>
+
+<p>
+
+Enter the secret PIN
+
+</p>
+
+<input
+
+type="password"
+
+maxlength="4"
+
+id="pin"
+
+readonly
+
+placeholder="••••"
+
+>
+
+<div class="keypad">
+
+<button onclick="press(1)">1</button>
+
+<button onclick="press(2)">2</button>
+
+<button onclick="press(3)">3</button>
+
+<button onclick="press(4)">4</button>
+
+<button onclick="press(5)">5</button>
+
+<button onclick="press(6)">6</button>
+
+<button onclick="press(7)">7</button>
+
+<button onclick="press(8)">8</button>
+
+<button onclick="press(9)">9</button>
+
+<button onclick="clearPin()">⌫</button>
+
+<button onclick="press(0)">0</button>
+
+<button onclick="unlock()">❤️</button>
+
+</div>
+
+<p id="wrongPin"></p>
+
+</div>
+
+</section>
+
+<!-- Welcome Screen -->
+
+<section id="welcome" class="page">
+
+<div class="card">
+
+<h1 class="title">
+
+Happy Birthday
+
+</h1>
+
+<div class="emoji">
+
+🎂💖🎈
+
+</div>
+
+<p>
+
+Today is all about celebrating the most amazing person in my life.
+
+</p>
+
+<button class="nextBtn" onclick="nextPage('birthday')">
+
+Open Your Surprise ✨
+
+</button>
+
+</div>
+
+</section>
+<!-- Birthday Page -->
+
+<section id="birthday" class="page">
+
+    <div class="card birthday-card">
+    
+    <h1 class="title">
+    🎂 Happy Birthday ❤️
+    </h1>
+    
+    <div class="cake">
+    
+    <div class="candle"></div>
+    
+    <div class="flame"></div>
+    
+    <div class="cake-body">
+    🎂
+    </div>
+    
+    </div>
+    
+    <p class="wish">
+    
+    Today is your special day.
+    
+    May every smile, every dream and every wish come true.
+    
+    You deserve all the happiness in the world. ❤️
+    
+    </p>
+    
+    <div class="balloons">
+    
+    <span>🎈</span>
+    
+    <span>🎈</span>
+    
+    <span>🎈</span>
+    
+    <span>🎈</span>
+    
+    </div>
+    
+    <button class="nextBtn" onclick="nextPage('gallery')">
+    
+    See Our Memories 📸
+    
+    </button>
+    
+    </div>
+    
+    </section>
+    
+    <!-- Gallery Page -->
+    
+    <section id="gallery" class="page">
+    
+    <div class="card">
+    
+    <h2>
+    
+    📸 Our Beautiful Memories
+    
+    </h2>
+    
+    <p>
+    
+    Every picture reminds me how lucky I am to have you.
+    
+    </p>
+    
+    <div class="gallery">
+    
+    <div class="photo">
+    
+    <img src="assets/images/1.jpeg" alt="Photo 1">
+    
+    </div>
+    
+    <div class="photo">
+    
+    <img src="assets/images/2.jpeg" alt="Photo 2">
+    
+    </div>
+    
+    <div class="photo">
+    
+    <img src="assets/images/3.jpeg" alt="Photo 3">
+    
+    </div>
+    
+    <div class="photo">
+    
+    <img src="assets/images/4.jpeg" alt="Photo 4">
+    
+    </div>
+    
+    <div class="photo">
+    
+    <img src="assets/images/5.jpeg" alt="Photo 5">
+    
+    </div>
+    
+    <div class="photo">
+    
+    <img src="assets/images/6.jpeg" alt="Photo 6">
+    
+    </div>
+    
+    </div>
+    
+    <button class="nextBtn" onclick="nextPage('memories')">
+    
+    Read My Letter 💌
+    
+    </button>
+    
+    </div>
+    
+    </section>
+
+<!-- Polaroid Memory Wall -->
+
+<section id="memories" class="page">
+
+    <div class="card">
+    
+    <h1>📸 Our Beautiful Memories</h1>
+    
+    <p>Every picture holds a beautiful memory ❤️</p>
+    
+    <div class="polaroid-wall">
+    
+    <div class="polaroid rotate1">
+    <img src="assets/images/1.jpeg">
+    <span>Cutest ❤️</span>
+    </div>
+    
+    <div class="polaroid rotate2">
+    <img src="assets/images/2.jpeg">
+    <span>lovie dovie ✨</span>
+    </div>
+    
+    <div class="polaroid rotate3">
+    <img src="assets/images/3.jpeg">
+    <span>Forever Together 💖</span>
+    </div>
+    
+    <div class="polaroid rotate4">
+    <img src="assets/images/4.jpeg">
+    <span>Best Day 🌸</span>
+    </div>
+    
+    <div class="polaroid rotate5">
+    <img src="assets/images/5.jpeg">
+    <span>My Favourite ❤️</span>
+    </div>
+    
+    <div class="polaroid rotate6">
+    <img src="assets/images/6.jpeg">
+    <span>Always You 🥺</span>
+    </div>
+    
+    </div>
+    
+    <button class="nextBtn" onclick="nextPage('letter')">
+    Continue 💌
+    </button>
+    
+    </div>
+    
+    </section>
+
+    <!-- Letter Page -->
+
+<section id="letter" class="page">
+
+    <div class="card letter-card">
+    
+    <h1>💌 A Letter For You</h1>
+    
+    <div class="letter-box">
+    
+    <p id="typingText"></p>
+    
+    </div>
+    
+    <button class="nextBtn" onclick="nextPage('gift')">
+    
+    Open Your Gift 🎁
+    
+    </button>
+    
+    </div>
+    
+    </section>
+    
+    <!-- Gift Page -->
+    
+    <section id="gift" class="page">
+    
+    <div class="card">
+    
+    <h1>🎁 A Special Gift</h1>
+    
+    <p>
+    
+    Tap the gift box to open your surprise.
+    
+    </p>
+    
+    <div class="gift-box" onclick="openGift()">
+    
+    <div class="gift-lid"></div>
+    
+    <div class="gift-body"></div>
+    
+    <div class="gift-ribbon"></div>
+    
+    </div>
+    
+    <p id="giftMessage">
+    
+    ❤️ You are the best gift life has ever given me ❤️
+    
+    </p>
+    
+    <button class="nextBtn" onclick="nextPage('final')">
+    
+    Final Surprise ✨
+    
+    </button>
+    
+    </div>
+    
+    </section>
+    
+    <!-- Final Page -->
+    
+    <section id="final" class="page">
+    
+    <div class="card final-card">
+    
+    <h1 class="title">
+    
+    Happy Birthday ❤️
+    
+    </h1>
+    
+    <div class="final-heart">
+    
+    ❤️
+    
+    </div>
+    
+    <h2>
+    
+    I Love You Forever ♾️
+    
+    </h2>
+    
+    <p>
+    
+    Thank you for filling my life with happiness.
+    
+    I hope your birthday is as beautiful as your smile.
+    
+    May all your dreams come true.
+    
+    Stay happy.
+    
+    Stay blessed.
+    
+    Stay mine forever. ❤️
+    
+    </p>
+    
+    <div class="final-buttons">
+    
+    <button onclick="location.reload()">
+    
+    🔄 Replay
+    
+    </button>
+    
+    <button onclick="showConfetti()">
+    
+    🎉 Celebrate
+    
+    </button>
+    
+    </div>
+    
+    </div>
+    
+    </section>
+    <!-- Confetti Container -->
+<div id="confetti-container"></div>
+
+<!-- Floating Hearts -->
+<div id="floatingHearts"></div>
+
+<!-- Floating Stars -->
+<div id="floatingStars"></div>
+
+<!-- Music Controls -->
+<div id="musicPanel">
+
+<button id="playMusic">
+
+▶️
+
+</button>
+
+<button id="pauseMusic">
+
+⏸️
+
+</button>
+
+</div>
+
+<!-- Background Music -->
+
+<audio id="bgMusic" loop>
+
+<source src="assets/music.mp3" type="audio/mp3">
+
+</audio>
+
+<!-- Popup -->
+
+<div id="popup" class="popup">
+
+<div class="popup-card">
+
+<h2>🎉 Surprise! 🎉</h2>
+
+<p>
+
+Happy Birthday ❤️
+
+I hope today brings endless happiness,
+
+love and unforgettable memories.
+
+</p>
+
+<button onclick="closePopup()">
+
+Close
+
+</button>
+
+</div>
+
+</div>
+
+<!-- Footer -->
+
+<footer class="footer">
+    Made with <span class="heart">❤</span> by <strong>Mayank</strong>
+  </footer>
+
+<!-- JavaScript -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

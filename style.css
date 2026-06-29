@@ -1,0 +1,1095 @@
+/* =========================================
+   RESET
+========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+    }
+    
+    html{
+    scroll-behavior:smooth;
+    }
+    
+    body{
+    
+    font-family:'Poppins',sans-serif;
+    
+    background:linear-gradient(180deg,#ffd6e8,#ffeef6,#fff8fb);
+    
+    overflow-x:hidden;
+    
+    min-height:100vh;
+    
+    color:#444;
+    
+    position:relative;
+    
+    }
+    
+    /* =========================================
+       FLOATING BACKGROUND
+    ========================================= */
+    
+    .hearts,
+    .sparkles,
+    #floatingHearts,
+    #floatingStars{
+    
+    position:fixed;
+    
+    top:0;
+    
+    left:0;
+    
+    width:100%;
+    
+    height:100%;
+    
+    pointer-events:none;
+    
+    overflow:hidden;
+    
+    z-index:0;
+    
+    }
+    
+    /* =========================================
+       PAGE
+    ========================================= */
+    
+    .page{
+    
+    display:none;
+    
+    width:100%;
+    
+    min-height:100vh;
+    
+    padding:25px;
+    
+    justify-content:center;
+    
+    align-items:center;
+    
+    flex-direction:column;
+    
+    position:relative;
+    
+    z-index:2;
+    
+    }
+    
+    .page.active{
+    
+    display:flex;
+    
+    animation:fade .8s ease;
+    
+    }
+    
+    @keyframes fade{
+    
+    from{
+    
+    opacity:0;
+    
+    transform:translateY(30px);
+    
+    }
+    
+    to{
+    
+    opacity:1;
+    
+    transform:translateY(0);
+    
+    }
+    
+    }
+    
+    /* =========================================
+       CARD
+    ========================================= */
+    
+    .card{
+    
+    width:100%;
+    
+    max-width:420px;
+    
+    padding:28px;
+    
+    border-radius:28px;
+    
+    background:rgba(255,255,255,.35);
+    
+    backdrop-filter:blur(20px);
+    
+    -webkit-backdrop-filter:blur(20px);
+    
+    box-shadow:
+    
+    0 10px 35px rgba(255,105,180,.18);
+    
+    text-align:center;
+    
+    }
+    
+    /* =========================================
+       TITLE
+    ========================================= */
+    
+    .title{
+    
+    font-family:'Pacifico',cursive;
+    
+    font-size:clamp(32px,7vw,48px);
+    
+    color:#ff4f93;
+    
+    margin-bottom:15px;
+    
+    }
+    
+    h2{
+    
+    font-size:24px;
+    
+    margin-bottom:12px;
+    
+    }
+    
+    p{
+    
+    font-size:15px;
+    
+    line-height:1.8;
+    
+    }
+    
+    /* =========================================
+       BUTTONS
+    ========================================= */
+    
+    button{
+    
+    border:none;
+    
+    outline:none;
+    
+    cursor:pointer;
+    
+    font-size:16px;
+    
+    font-weight:600;
+    
+    border-radius:18px;
+    
+    padding:15px 25px;
+    
+    margin-top:20px;
+    
+    background:#ff5d9e;
+    
+    color:white;
+    
+    transition:.3s;
+    
+    box-shadow:
+    
+    0 8px 20px rgba(255,93,158,.35);
+    
+    }
+    
+    button:active{
+    
+    transform:scale(.96);
+    
+    }
+    
+    button:hover{
+    
+    background:#ff3f8b;
+    
+    }
+    
+    /* =========================================
+       MUSIC BUTTON
+    ========================================= */
+    
+    #musicBtn{
+    
+    position:fixed;
+    
+    right:18px;
+    
+    bottom:20px;
+    
+    width:58px;
+    
+    height:58px;
+    
+    border-radius:50%;
+    
+    font-size:24px;
+    
+    display:flex;
+    
+    align-items:center;
+    
+    justify-content:center;
+    
+    background:#ff4f93;
+    
+    color:white;
+    
+    z-index:999;
+    
+    box-shadow:
+    
+    0 10px 25px rgba(255,0,120,.3);
+    
+    }
+    
+    /* =========================================
+       LOADER
+    ========================================= */
+    
+    #loader{
+    
+    position:fixed;
+    
+    inset:0;
+    
+    background:#ffdce9;
+    
+    display:flex;
+    
+    justify-content:center;
+    
+    align-items:center;
+    
+    flex-direction:column;
+    
+    z-index:9999;
+    
+    }
+    
+    .loader-content{
+    
+    text-align:center;
+    
+    }
+    
+    .gift{
+    
+    font-size:70px;
+    
+    animation:bounce 1s infinite;
+    
+    }
+    
+    .loading-bar{
+    
+    margin-top:20px;
+    
+    width:230px;
+    
+    height:10px;
+    
+    background:#fff;
+    
+    border-radius:50px;
+    
+    overflow:hidden;
+    
+    }
+    
+    .loading-bar span{
+    
+    display:block;
+    
+    height:100%;
+    
+    width:0;
+    
+    background:#ff4f93;
+    
+    animation:loading 3s linear forwards;
+    
+    }
+    
+    @keyframes loading{
+    
+    0%{
+    
+    width:0;
+    
+    }
+    
+    100%{
+    
+    width:100%;
+    
+    }
+    
+    }
+    
+    @keyframes bounce{
+    
+    0%,100%{
+    
+    transform:translateY(0);
+    
+    }
+    
+    50%{
+    
+    transform:translateY(-14px);
+    
+    }
+    
+    }
+/* =========================================
+   LOCK SCREEN
+========================================= */
+
+#lockScreen{
+    justify-content:center;
+    align-items:center;
+    }
+    
+    .lock-icon{
+    font-size:65px;
+    margin-bottom:15px;
+    animation:lockFloat 2s ease-in-out infinite;
+    }
+    
+    @keyframes lockFloat{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+    }
+    
+    #pin{
+    width:180px;
+    height:55px;
+    margin:20px auto;
+    display:block;
+    border:none;
+    outline:none;
+    border-radius:16px;
+    background:#fff;
+    font-size:28px;
+    letter-spacing:10px;
+    text-align:center;
+    color:#ff4f93;
+    font-weight:600;
+    box-shadow:0 6px 18px rgba(255,105,180,.18);
+    }
+    
+    #wrongPin{
+    margin-top:15px;
+    color:#ff2d55;
+    font-size:14px;
+    font-weight:600;
+    }
+    
+    /* =========================================
+       KEYPAD
+    ========================================= */
+    
+    .keypad{
+    margin-top:25px;
+    display:grid;
+    grid-template-columns:repeat(3,70px);
+    gap:15px;
+    justify-content:center;
+    }
+    
+    .keypad button{
+    width:70px;
+    height:70px;
+    margin:0;
+    border-radius:50%;
+    font-size:22px;
+    background:white;
+    color:#ff4f93;
+    font-weight:700;
+    box-shadow:0 8px 18px rgba(255,105,180,.15);
+    transition:.25s;
+    }
+    
+    .keypad button:hover{
+    transform:translateY(-4px);
+    }
+    
+    .keypad button:active{
+    transform:scale(.92);
+    }
+    
+    /* =========================================
+       WELCOME PAGE
+    ========================================= */
+    
+    .emoji{
+    font-size:50px;
+    margin:15px 0;
+    animation:bounceEmoji 2s infinite;
+    }
+    
+    @keyframes bounceEmoji{
+    0%,100%{
+    transform:translateY(0);
+    }
+    50%{
+    transform:translateY(-10px);
+    }
+    }
+    
+    .nextBtn{
+    width:100%;
+    margin-top:25px;
+    }
+    
+    /* =========================================
+       BIRTHDAY PAGE
+    ========================================= */
+    
+    .birthday-card{
+    position:relative;
+    overflow:hidden;
+    }
+    
+    .wish{
+    margin-top:20px;
+    font-size:16px;
+    line-height:1.8;
+    color:#555;
+    }
+    
+    /* =========================================
+       CAKE
+    ========================================= */
+    
+    .cake{
+    margin:35px auto;
+    position:relative;
+    width:120px;
+    height:140px;
+    }
+    
+    .cake-body{
+    font-size:95px;
+    position:absolute;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+    }
+    
+    .candle{
+    position:absolute;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+    width:10px;
+    height:35px;
+    background:white;
+    border-radius:10px;
+    }
+    
+    .flame{
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:16px;
+    height:22px;
+    background:gold;
+    border-radius:50%;
+    animation:flicker .8s infinite alternate;
+    box-shadow:0 0 15px gold;
+    }
+    
+    @keyframes flicker{
+    0%{
+    transform:translateX(-50%) scale(1);
+    opacity:1;
+    }
+    100%{
+    transform:translateX(-50%) scale(.8);
+    opacity:.7;
+    }
+    }
+    
+    /* =========================================
+       BALLOONS
+    ========================================= */
+    
+    .balloons{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin-top:30px;
+    }
+    
+    .balloons span{
+    font-size:40px;
+    animation:floatBalloon 3s ease-in-out infinite;
+    }
+    
+    .balloons span:nth-child(2){
+    animation-delay:.5s;
+    }
+    
+    .balloons span:nth-child(3){
+    animation-delay:1s;
+    }
+    
+    .balloons span:nth-child(4){
+    animation-delay:1.5s;
+    }
+    
+    @keyframes floatBalloon{
+    0%,100%{
+    transform:translateY(0);
+    }
+    50%{
+    transform:translateY(-20px);
+    }
+    }
+    /* =========================================
+   GALLERY
+========================================= */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-top:25px;
+    width:100%;
+    }
+    
+    .photo{
+    position:relative;
+    overflow:hidden;
+    border-radius:20px;
+    background:#fff;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    aspect-ratio:1/1;
+    transition:.35s;
+    }
+    
+    .photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:.4s;
+    }
+    
+    .photo:hover{
+    transform:translateY(-8px);
+    }
+    
+    .photo:hover img{
+    transform:scale(1.08);
+    }
+    
+    /* =========================================
+       LETTER
+    ========================================= */
+    
+    .letter-card{
+    max-width:430px;
+    }
+    
+    .letter-box{
+    margin-top:20px;
+    padding:20px;
+    border-radius:20px;
+    background:rgba(255,255,255,.75);
+    min-height:220px;
+    box-shadow:0 10px 25px rgba(255,105,180,.12);
+    text-align:left;
+    }
+    
+    #typingText{
+    font-size:16px;
+    line-height:1.9;
+    color:#444;
+    white-space:pre-wrap;
+    }
+    
+    /* =========================================
+       GIFT BOX
+    ========================================= */
+    
+    .gift-box{
+    width:140px;
+    height:140px;
+    margin:35px auto;
+    position:relative;
+    cursor:pointer;
+    transition:.4s;
+    }
+    
+    .gift-body{
+    position:absolute;
+    bottom:0;
+    width:140px;
+    height:95px;
+    background:#ff5d9e;
+    border-radius:0 0 16px 16px;
+    }
+    
+    .gift-lid{
+    position:absolute;
+    top:18px;
+    width:150px;
+    height:30px;
+    left:-5px;
+    background:#ff78b3;
+    border-radius:10px;
+    transition:.5s;
+    }
+    
+    .gift-ribbon{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    width:18px;
+    height:140px;
+    background:#fff;
+    }
+    
+    .gift-box.open .gift-lid{
+    transform:translateY(-35px) rotate(-8deg);
+    }
+    
+    .gift-box:hover{
+    transform:scale(1.05);
+    }
+    
+    #giftMessage{
+    display:none;
+    margin-top:20px;
+    font-size:18px;
+    font-weight:600;
+    color:#ff4f93;
+    animation:fadeGift .6s ease;
+    }
+    
+    @keyframes fadeGift{
+    from{
+    opacity:0;
+    transform:translateY(15px);
+    }
+    to{
+    opacity:1;
+    transform:translateY(0);
+    }
+    }
+    
+    /* =========================================
+       FINAL PAGE
+    ========================================= */
+    
+    .final-card{
+    text-align:center;
+    }
+    
+    .final-heart{
+    font-size:90px;
+    margin:20px 0;
+    animation:heartbeat 1.2s infinite;
+    }
+    
+    @keyframes heartbeat{
+    
+    0%,100%{
+    transform:scale(1);
+    }
+    
+    25%{
+    transform:scale(1.12);
+    }
+    
+    50%{
+    transform:scale(.96);
+    }
+    
+    75%{
+    transform:scale(1.1);
+    }
+    
+    }
+    
+    .final-buttons{
+    display:flex;
+    gap:12px;
+    margin-top:30px;
+    justify-content:center;
+    flex-wrap:wrap;
+    }
+    
+    .final-buttons button{
+    flex:1;
+    min-width:130px;
+    }
+    /* =========================================
+   CONFETTI CONTAINER
+========================================= */
+
+#confetti-container{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:999;
+    }
+    
+    .confetti{
+    position:absolute;
+    width:10px;
+    height:18px;
+    border-radius:3px;
+    animation:confettiFall 5s linear forwards;
+    }
+    
+    @keyframes confettiFall{
+    
+    0%{
+    transform:translateY(-120px) rotate(0deg);
+    opacity:1;
+    }
+    
+    100%{
+    transform:translateY(120vh) rotate(720deg);
+    opacity:0;
+    }
+    
+    }
+    
+    /* =========================================
+       FLOATING HEARTS
+    ========================================= */
+    
+    .heart{
+    
+    position:absolute;
+    
+    bottom:-40px;
+    
+    font-size:24px;
+    
+    animation:heartFloat linear forwards;
+    
+    opacity:.8;
+    
+    }
+    
+    @keyframes heartFloat{
+    
+    0%{
+    transform:translateY(0) scale(.7);
+    opacity:0;
+    }
+    
+    20%{
+    opacity:1;
+    }
+    
+    100%{
+    transform:translateY(-120vh) scale(1.4);
+    opacity:0;
+    }
+    
+    }
+    
+    /* =========================================
+       SPARKLES
+    ========================================= */
+    
+    .sparkle{
+    
+    position:absolute;
+    
+    width:8px;
+    
+    height:8px;
+    
+    border-radius:50%;
+    
+    background:white;
+    
+    box-shadow:0 0 15px white;
+    
+    animation:twinkle 2s infinite;
+    
+    }
+    
+    @keyframes twinkle{
+    
+    0%,100%{
+    opacity:.2;
+    transform:scale(.8);
+    }
+    
+    50%{
+    opacity:1;
+    transform:scale(1.4);
+    }
+    
+    }
+    
+    /* =========================================
+       POPUP
+    ========================================= */
+    
+    .popup{
+    
+    position:fixed;
+    
+    top:0;
+    
+    left:0;
+    
+    width:100%;
+    
+    height:100%;
+    
+    background:rgba(0,0,0,.45);
+    
+    display:none;
+    
+    justify-content:center;
+    
+    align-items:center;
+    
+    padding:20px;
+    
+    z-index:1000;
+    
+    }
+    
+    .popup-card{
+    
+    background:white;
+    
+    border-radius:24px;
+    
+    padding:30px;
+    
+    max-width:380px;
+    
+    width:100%;
+    
+    text-align:center;
+    
+    animation:popup .4s ease;
+    
+    }
+    
+    @keyframes popup{
+    
+    from{
+    transform:scale(.8);
+    opacity:0;
+    }
+    
+    to{
+    transform:scale(1);
+    opacity:1;
+    }
+    
+    }
+    
+    /* =========================================
+       FOOTER
+    ========================================= */
+    
+    .footer{
+      text-align:center;
+      padding:20px;
+      margin-top:40px;
+      color:#fff;
+      font-size:14px;
+  }
+  
+  .heart{
+      color:#ff4d6d;
+      animation: beat 1s infinite;
+  }
+  
+  @keyframes beat{
+      0%,100%{transform:scale(1);}
+      50%{transform:scale(1.2);}
+  }
+
+    /* =========================================
+       MOBILE RESPONSIVE
+    ========================================= */
+    
+    @media (max-width:480px){
+    
+    .card{
+    
+    padding:22px;
+    
+    border-radius:22px;
+    
+    }
+    
+    .title{
+    
+    font-size:34px;
+    
+    }
+    
+    .gallery{
+    
+    grid-template-columns:1fr 1fr;
+    
+    gap:10px;
+    
+    }
+    
+    .keypad{
+    
+    grid-template-columns:repeat(3,65px);
+    
+    gap:12px;
+    
+    }
+    
+    .keypad button{
+    
+    width:65px;
+    
+    height:65px;
+    
+    font-size:20px;
+    
+    }
+    
+    button{
+    
+    width:100%;
+    
+    }
+    
+    .final-buttons{
+    
+    flex-direction:column;
+    
+    }
+    
+    }
+    
+    /* =========================================
+       SCROLLBAR
+    ========================================= */
+    
+    ::-webkit-scrollbar{
+    
+    width:6px;
+    
+    }
+    
+    ::-webkit-scrollbar-thumb{
+    
+    background:#ff73ad;
+    
+    border-radius:10px;
+    
+    }
+    
+    ::-webkit-scrollbar-track{
+    
+    background:#ffe6f0;
+    
+    }
+    
+    /* POLAROID WALL */
+
+.polaroid-wall{
+
+   display:grid;
+   
+   grid-template-columns:repeat(2,1fr);
+   
+   gap:18px;
+   
+   margin-top:25px;
+   
+   }
+   
+   .polaroid{
+   
+   background:#fff;
+   
+   padding:10px;
+   
+   padding-bottom:45px;
+   
+   border-radius:8px;
+   
+   box-shadow:0 12px 30px rgba(0,0,0,.18);
+   
+   transition:.4s;
+   
+   position:relative;
+   
+   }
+   
+   .polaroid img{
+   
+   width:100%;
+   
+   height:180px;
+   
+   object-fit:cover;
+   
+   border-radius:4px;
+   
+   }
+   
+   .polaroid span{
+   
+   position:absolute;
+   
+   bottom:12px;
+   
+   left:0;
+   
+   right:0;
+   
+   text-align:center;
+   
+   font-family:cursive;
+   
+   font-size:15px;
+   
+   color:#555;
+   
+   }
+   
+   .polaroid:hover{
+   
+   transform:scale(1.08) rotate(0deg);
+   
+   z-index:5;
+   
+   }
+   
+   .rotate1{transform:rotate(-6deg);}
+   .rotate2{transform:rotate(5deg);}
+   .rotate3{transform:rotate(-3deg);}
+   .rotate4{transform:rotate(7deg);}
+   .rotate5{transform:rotate(-5deg);}
+   .rotate6{transform:rotate(4deg);}
